@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Function</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-size: 30px;
+      font-family: sans-serif;
+      font-weight: 900;
+      color: purple;
+    }
+
+    body {
+      background-color: #f5e8dd;
+    }
+
+    input {
+      border-radius: 10px;
+      transform: translateY(-95px);
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 50px;
+    }
+
+    #demo {
+      position: fixed;
+      bottom: 2;
+    }
+
+    .wrapper {
+      background-color: #eed3d9;
+      width: 45%;
+      height: 300px;
+      border-radius: 15px;
+      margin: auto;
+      transform: translateY(120px);
+    }
+
+    .text {
+      transform: translateY(-100px);
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div>
+        <h2 class="text">Enter a number Celsius to Fahrenheit</h2>
+        <input type="text" name="" id="value" />
+        <p id="demo"></p>
+      </div>
+    </div>
+    <script>
+      // function fahrenheitToCelsius(fahrenheit) {
+      //   var celsius = ((fahrenheit - 32) * 5) / 9;
+      //   document.getElementById("demo").innerHTML = celsius;
+      // }
+      // function toCelsius(f) {
+      //   return (5 / 9) * (f - 32);
+      // }
+      // let value = toCelsius(27);
+
+      // document.getElementById("demo").innerHTML = value;
+      let getValue = document.getElementById("value");
+
+      getValue.addEventListener("input", function () {
+        let value = getValue.value;
+        let celsius = parseFloat(value);
+
+        if (!isNaN(celsius)) {
+          let fahrenheit = toFahrenheit(celsius);
+          document.getElementById("demo").innerHTML = fahrenheit;
+        } else {
+          document.getElementById("demo").innerHTML =
+            "Convert Celsius to Fahrenheit";
+        }
+      });
+
+      function toFahrenheit(celsius) {
+        return (celsius * 9) / 5 + 32;
+      }
+    </script>
+  </body>
+</html>
